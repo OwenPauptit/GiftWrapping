@@ -1,9 +1,10 @@
 class Vector
 {
-    constructor(x,y)
+    constructor(x,y,z=0)
     {
         this.x = x;
         this.y = y;
+        this.z = z;
     }
 
     static Subtract = function(a,b)
@@ -73,4 +74,11 @@ class Vector
         return Vector.LengthSquared(Vector.Subtract(b,a));
     }
 
+    static CrossProduct = function(a,b)
+    {
+        var x = a.y * b.z - a.z * b.y;
+        var y = a.x * b.z - a.z * b.x;
+        var z = a.x * b.y - a.y * b.x;
+        return new Vector(x,y,z);
+    }
 }
